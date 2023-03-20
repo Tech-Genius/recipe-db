@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@200&family=Open+Sans:wght@400;500&family=Oswald&family=Updock&display=swap');
+
+.home_recipes{
+    margin-top: 30px;
+}
+
+
+.hero{
+    padding-top: 50px;
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    background-color: rgba(238, 236, 236, 0.219);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    
+  }
+  
+
+  .herobox{
+    width: 80%;
+    justify-self: center;
+  }
+
+
+  .herotext h3{
+    color: #4E93F4;
+    font-size: 50px;
+    margin: 0;
+    margin-bottom: 20px;
+
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .herotext span{
+    color: #f26522;
+  }
+
+
+  .recipes_heading{
+    color: #4E93F4;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .recipes_heading span{
+    color: #f26522;
+  }
+
+
+
+.recipe_banner{
+    width: 100%;
+}
+.recipe_banner img{
+    width: 100%;
+    height: 250px;
+    border-bottom: 1px solid #fa681348;
+    margin-bottom: 10px;
+}
+.home_recipes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+
+ .recipe_block{
+     width: 80%;
+     margin: 30px 10%;
+     -webkit-box-shadow: 0px 0px 6px 0px rgba(176,170,176,1);
+     -moz-box-shadow: 0px 0px 6px 0px rgba(176,170,176,1);
+     box-shadow: 0px 0px 6px 0px rgba(176,170,176,1);
+     border-radius: 20px;
+     overflow: hidden;
+     padding-bottom: 40px;
+     text-align: center;
+ }
+ .name{
+    color: #4E93F4;
+    font-size: 25px;
+ }
+
+
+ .time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+    font-size: 12px;
+    margin-bottom: 10px;
+ }
+
+ .time i{
+margin-right: 5px;
+ }
+
+
+
+
+
+
+
+
+
+
+
+ 
+@media screen and (max-width:768px){
+    .hero{
+        grid-template-columns: 1fr;
+        height: fit-content;
+        padding: 100px 0px;
+    }
+
+    .herotext h3{
+        font-size: 30px;
+    }
+
+    .herobox#img{
+        display: none;
+    }
+
+    .recipes_heading{
+        font-size: 30px;
+      }
+
+    .home_recipes{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .recipe_banner img{
+        height: 200px;
+    }
+}
+
+ 
+@media screen and (max-width:560px){
+    .home_recipes{
+        grid-template-columns: 1fr;
+    }
+}

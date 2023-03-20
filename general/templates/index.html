@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %} Meal-tab🥄 | Home {% endblock %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+
+
+
+<div class="hero">
+
+
+    <div class="herobox" data-aos="fade-right" id="img" data-aos-duration="1200">
+        <img src="{% static '/images/hero.png' %}" alt="">
+    </div>
+
+
+
+
+    <div class="herobox" data-aos="fade-left" data-aos-duration="1200">
+        <div class="herotext">
+            <h3>Discover And <span>Share</span> Mouth-<span>Watering</span> Recipes And <span>Inspiration.</span></h3>
+            <a href="#recipes"><button>View Recipes</button></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div></div><a name="recipes"></a>
+<div class="recipes_heading">
+    <h3>Latest <span>Recipes</span></h3>
+</div>
+<div class="home_recipes">
+
+    {% for recipe in recipes %}
+
+    <div class="recipe_banner">
+        <div class="recipe_block">
+            <img src="{{ recipe.image.url }}" alt="">
+
+            <h3 class="name" style="margin: 0;">{{ recipe.name }}</h3>
+
+            <div class="time" style="display: flex; padding-top: 10px;">
+                <i class="far fa-clock"></i>
+                <h5 class="date" style="margin: 0;">{{ recipe.date_added }}</h5>
+            </div>
+
+
+            <a href="{% url 'recipe_detail' recipe.pk %}"><button>View Recipe</button></a>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock content %}

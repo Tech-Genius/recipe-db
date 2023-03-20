@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+{% if q %}
+
+You Searched For {{q}}
+
+{% else %}
+
+You Didn't Enter A Search Query
+
+{% endif %}
+
+{% endblock %}
+
+
+
+{% load static %}
+
+
+{% block content %}
+{% if q %}
+<div class="searchpage_wrapper">
+    <div class="search-wrapper">
+
+
+        <div class="search_background1">
+
+            <div class="box">
+                <h3> You searched for <span>{{q}}</span></h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="results">
+    {% if results %}
+    <div class="top">
+        <h3>Related <span>Results</span></h3>
+    </div>
+    <div class="result_wrapper">
+        {% for result in results %}
+        <div class="l">
+          <a href="{% url 'item' result.slug %}">
+            <div class="result_box" data-aos="zoom-in-up" data-aos-duration="1200">
+                <img src="{{ result.image.url}}" alt="">
+                <div class="text">
+                    <h3>{{result.title}}</h3>
+                    <p>&#8358;{{result.price}}</p>
+                    <form action="">
+                        <div class="cart">
+                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </a>
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+        <div class="no_result_box">
+            <h3>Oppps, we don't have the meal you searched for, Try another search</h3>
+        </div>
+
+        {% endif %}
+    </div>
+
+</div>
+
+
+
+
+
+
+{% else %}
+
+<div class="searchpage_wrapper">
+    <div class="search-wrapper">
+
+
+
+        <div class="search_background1">
+            <div class="box">
+                <h3> You Didn't Enter A Search Query</h3>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

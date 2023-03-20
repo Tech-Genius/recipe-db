@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <title>Sign Up</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <a href="{% url 'home' %}">
+            <h3>Meal-tab🥄</h3>
+        </a>
+    </div>
+
+
+    <section class="myform-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-area login-form">
+                        <div class="form-content" data-aos="fade-right" data-aos-duration="1200">
+                            <img src="{% static 'images/chef-311680.png' %}" alt="">
+
+                        </div>
+
+                        <div class="form-input" data-aos="fade-left" data-aos-duration="1200">
+                            <div class="form-wrap">
+                                <h2>Create a New Meal-tab Account</h2>
+                                <form method="POST">
+                                    {% for message in messages %}
+                                    <p style="color: #b6c5d4 ; padding-bottom:8px; font-size: 15px;">{{message}}</p>
+
+                                    {% for error in form.username.errors %}
+                                    <p style="color: red; padding-bottom:8px; font-size: 15px;"> {{error}}</p>
+                                    {% endfor %}
+
+                                    {% for error in form.password1.errors %}
+                                    <p style="color: red; padding-bottom:8px; font-size: 15px;"> {{error}}</p>
+                                    {% endfor %}
+
+                                    {% for error in form.password2.errors %}
+                                    <p style="color: red; padding-bottom:8px; font-size: 15px;"> {{error}}</p>
+                                    {% endfor %}
+
+                                    {% endfor %}
+
+                                    {% csrf_token %}
+
+                                    <div class="form-group">
+
+                                        {{form.email}}
+
+                                        <label>Email</label>
+
+
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        {{form.username}}
+
+                                        <label>Username</label>
+
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        {{form.password1}}
+
+                                        <label>Password</label>
+
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        {{form.password2}}
+
+                                        <label>Repeat Password</label>
+                                    </div>
+
+                                    <div class="myform-button">
+                                        <button class="myform-btn" type="submit">Sign Up</button>
+                                    </div>
+                                    <div class="form-versa">
+                                        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>    AOS.init(); </script>
+</body>
+
+</html>

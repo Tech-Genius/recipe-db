@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="banner">
+
+    <div class="post_details">
+
+        <div class="recipe_name">
+            <h2>{{ recipe.name }}</h2>
+        </div>
+
+
+        {% if recipe.image %}
+        <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+        {% endif %}
+
+        <div class="ingredients">
+            <h3>Ingredients:</h3>
+            <pre>
+            <p>{{ recipe.ingredients }}</p>
+            </pre>
+        </div>
+
+
+        <div class="instructions">
+           
+            <h3>Instructions:</h3>
+            <pre>
+            <p>{{ recipe.instructions }}</p>
+        </pre>
+        </div>
+
+
+        <div class="duration">
+            <h3>Duration:</h3>
+            <p>{{ recipe.cooking_duration }}</p>
+        </div>
+
+        <!-- <div class="comments">
+        <h3>Comments</h3>
+        <ul>
+            {% for comment in comments %}
+            <li>{{ comment.content }} - {{ comment.user.username }}</li>
+            {% empty %}
+            <li>No comments yet.</li>
+            {% endfor %}
+        </ul>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Comment</button>
+        </form>
+    </div> -->
+
+
+
+
+
+
+
+        <div class="comments" style="margin-bottom: 150px;">
+            <div class="comment_zone">
+                <h3>Recent Comments:</h3>
+
+                {% if comments %}
+
+                {% for comment in comments %}
+                <div class="commenters">
+                    <div class="user" style="display:inline-flex;">
+                        <img src="/static/images/toy face1.jpg" alt=""
+                            style="width: 40px; height: 40px; border-radius: 50%;">
+                        <h3>{{ comment.user.username }}</h3>
+                    </div>
+                    <p>{{ comment.content}}</p>
+                    <div class="time" style="display: inline-flex;">
+                        <i class="far fa-clock"></i>
+                        <h5 class="small"> At {{ comment.date_added}}</h5>
+                    </div>
+
+                </div>
+          
+
+            {% endfor %}
+
+            {% else %}
+
+            <p>No comments yet</p>
+
+            {% endif %}
+        </div>
+
+           
+
+        <div class="new_comment">
+            <h3>Add New Comment:</h3>
+            {% if user.is_authenticated %}
+            <form class="my-form" action="." method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+            
+
+                <div class="form">
+
+                    <div class="field">
+                        <div class="control">
+                            <button>submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            {% else %}
+            <div>Only Registered Users Are Allowed To Drop Their Comments. <a href="{% url 'register' %}">Signup</a>
+            </div>
+            {% endif %}
+        </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+</div>
+{% endblock %}

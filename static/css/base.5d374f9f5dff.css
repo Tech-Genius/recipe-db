@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@500&display=swap');
+
+
+/* header */
+html{
+	scroll-behavior: smooth !important;
+}
+body{
+	font-family: 'Oswald', sans-serif;
+
+}
+a{
+	text-decoration: none;
+}
+.header {
+    padding: 20px 0px;
+    margin: 0;
+    display: grid;
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 990;
+    /* border-bottom: 1px solid #6BABDE2c; */
+    box-shadow: 3px 3px 3px rgba(128, 128, 128, 0.123);
+	font-family: 'Oswald', sans-serif;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+}
+
+.header_inner {
+    width: 90%;
+    justify-self: center;
+    display: flex;
+    position: relative;
+    align-items: center;
+    }
+
+
+
+/* logo */
+.logo {
+    padding: 0px 8px;
+}
+
+
+.logo h3 {
+    font-size: 30px;
+	margin: 0;
+	color: #2E86C1;
+}
+
+.logo h3 span{
+	color: #FA6913;
+}
+
+/* menu */
+.menu {
+    right: 0;
+    position: absolute;
+	padding: 10px 0px;
+	z-index: 990;
+}
+
+.menu ul.menu_links {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+}
+
+
+.menu ul.menu_links .menu_link {
+
+    position: relative;
+    color:  #2E86C1;
+    font-size: 15px;
+
+    padding: 5px 0px;
+}
+
+.menu ul.menu_links .menu_link#button {
+    -webkit-text-fill-color: unset;
+    -webkit-background-clip: unset;
+    background-image: none;
+}
+
+
+.menu ul.menu_links .menu_link:hover {
+    color: #244B70;
+    transition: 0.5s linear;
+    cursor: pointer;
+}
+
+#active{
+    position: relative;
+    color: #213547;
+    font-size: 15px;
+
+    padding: 5px 0px;
+}
+
+
+
+#active::before {
+    content: "•";
+    position: absolute;
+    margin:-10px 45%;
+    bottom: 0;
+    left: 0;
+    width:fit-content;
+    
+    transform: scaleX(1);
+    transition: all 0.3s ease-out;
+}
+
+.menu ul.menu_links .router_link#button::after {
+    border-bottom: 0;
+}
+
+.menu ul.menu_links .router_link:hover::after {
+    transform: scaleX(1);
+}
+
+button{
+	background-color: #FA6913;
+	color: white;
+	padding: 10px 28px;
+	border-radius: 20px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	box-shadow: 3px 3px 3px rgba(176,170,176,1);
+	font-family: 'Oswald', sans-serif;
+}
+
+
+
+
+
+
+.active {
+    color: #4E93F4 !important;
+    transition: 0.5s linear;
+}
+
+.menu ul.menu_links li {
+    padding: 0px 20px;
+    margin: 0;
+    font-size: 14px;
+	font-family: 'Oswald', sans-serif;
+}
+
+
+
+
+
+
+/* sm_cntrl: controls the navigation bar on small screen */
+
+.sm_controls{
+	display: none;
+	position: absolute;
+	right: 0;
+}
+
+.sm_controls .open i{
+	background-color: #2E86C1;
+	padding: 10px 15px;
+	border-radius: 5px;
+	color: white;
+	font-size: 20px;
+}
+
+.sm_controls .close i{
+	background-color: #2E86C1;
+	padding: 10px 15px;
+	border-radius: 5px;
+	color: white;
+	font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries */
+
+@media screen and (max-width:850px) {
+
+
+
+    .menu ul.menu_links li {
+        padding: 0px 10px;
+    }
+
+}
+
+
+
+@media screen and (max-width:768px) {
+
+    .logo h3 {
+        font-size: 18px;
+    }
+
+    .logo img {
+        height: 55px;
+    }
+
+
+    .header_inner {
+        position: unset;
+    }
+
+
+
+	.sm_controls{
+		display: flex;
+		margin-right: 6%;
+		cursor: pointer;
+	}
+
+	.sm_controls .close{
+		display: none;
+	}
+
+
+    /* menu that displays on small screen */
+    .header_inner .menu {
+        width: 100%;
+        margin-top: 60px;
+        display: none;
+        width: 100%;
+        background: #ffffff;
+     
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 990;
+        overflow: auto;
+        height: 100vh;
+    }
+
+
+
+    /* animation that zooms out the navigation menu on small screen */
+    @keyframes zoom-in-zoom-out {
+
+        0% {
+            transform: skew(0deg);
+            margin-left: 100%;
+        }
+
+    }
+
+    .menu ul.menu_links {
+        display: grid;
+        padding: 0;
+        list-style-type: none;
+        align-items: center;
+    }
+
+ 
+
+
+
+
+
+
+    .menu ul.menu_links li {
+        padding: 15px 0px;
+        font-size: 13px;
+        border-bottom: 1px dotted #6BABDE2c;
+        width: 85%;
+        justify-self: center;
+        font-weight: bold;
+        color: white;
+    }
+
+
+
+
+
+
+    /* sm_cntrl" gets displayed on small screen */
+    .sm_cntrl {
+        right: 0;
+        position: absolute;
+        margin-right: 10%;
+        display: block;
+    }
+
+    .sm_cntrl .cntrl {
+        background: #244B70;
+        font-size: 23px;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        padding: 8px;
+        border-radius: 10%;
+    }
+
+}
