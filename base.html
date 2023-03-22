@@ -48,7 +48,7 @@
 
          <div class="search">
             <form method="GET" action="{% url 'search' %}">
-            
+
                <input type="search" name="q">
                <button type="submit">Submit</button>
             </form>
@@ -74,7 +74,7 @@
                   <a href="{% url 'login' %}" class="menu_link">Login</a>
                </li>
 
-              
+
 
 
                <li class="menu_item">
@@ -104,9 +104,9 @@
          </div>
 
 
-         </div>
-
       </div>
+
+   </div>
 
    </div>
    // header
@@ -129,7 +129,7 @@
 
    <div class="footer">
 
-         <p>© 2023. RecipeDB.</p>
+      <p>© 2023. RecipeDB.</p>
 
 
    </div>
@@ -153,39 +153,13 @@
       crossorigin="anonymous"></script>
 
    <script src="{% static 'js/main.js' %}"></script>
-   <script src="{% static 'js/category-filter.js' %}"></script>
 
    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
    <script>    AOS.init(); </script>
 
-<script>
-     $(document).ready(function(){
-    $(".open").click(function(){
-        
-        
-        $(".open").hide();
-       $(".close").fadeIn();
-      
-       $(".header_inner .menu").toggle("500", "swing");
-      //  $(".head_side").css("padding-top", "200px");
-      
-   })
-      });
+   <script>
 
-
-      $(document).ready(function(){
-    $(".close").click(function(){
-        
-        
-        $(".close").hide();
-       $(".open").fadeIn();
-      
-       $(".header_inner .menu").toggle("slow");
-      //  $(".head_side").css("padding-top", "200px");
-      
-   })
-      });
-</script>
+   </script>
 
 
    <!-- <script src="{% static 'intl-tel-input-17.0.19/build/js/intlTelInput.js' %}"></script>

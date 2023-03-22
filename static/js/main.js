@@ -1,29 +1,26 @@
-    
-  $(document).ready(function(){
-    $(".open").click(function(){
-        
-        
-        $(".close").show();
-       $(".open div").hide();
-       $(".").fadeOut("slow");
-       $(".list_box").toggle("slow");
+$(document).ready(function () {
+   $(".open").click(function () {
+
+
+      $(".open").hide();
+      $(".close").fadeIn();
+
+      $(".header_inner .menu").toggle("500", "swing");
       //  $(".head_side").css("padding-top", "200px");
-      
+
    })
-      });
- 
- 
-       
-  $(document).ready(function(){
-    
-    $(".icon2 div").click(function(){
-       
-        $(".icon1 div").show();
-       $(".icon2 div").hide();
-       $(".packer, .foot_packer").fadeIn("slow");
-       $(".list_box").toggle("slow");
-      //  $(".head_side").css("padding-top", "0");
-     
+});
+
+
+$(document).ready(function () {
+   $(".close").click(function () {
+
+
+      $(".close").hide();
+      $(".open").fadeIn();
+
+      $(".header_inner .menu").toggle("slow");
+      //  $(".head_side").css("padding-top", "200px");
+
    })
-      });
- 
+});
