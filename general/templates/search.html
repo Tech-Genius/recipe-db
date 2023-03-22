@@ -27,7 +27,6 @@ You Didn't Enter A Search Query
 <div class="search_page">
     <div class="search-wrapper">
 
-
         <div class="search_background1">
 
             <div class="box">
@@ -52,15 +51,15 @@ You Didn't Enter A Search Query
         <div class="recipe_banner">
             <div class="recipe_block">
                 <img src="{{ result.image.url }}" alt="">
-    
+
                 <h3 class="name" style="margin: 0;">{{ result.recipe_name }}</h3>
-    
+
                 <div class="time" style="display: flex; padding-top: 10px;">
                     <i class="far fa-clock"></i>
                     <h5 class="date" style="margin: 0;">{{ result.date_added }}</h5>
                 </div>
-    
-    
+
+
                 <a href="{% url 'recipe_detail' result.pk %}"><button>View Recipe</button></a>
             </div>
         </div>

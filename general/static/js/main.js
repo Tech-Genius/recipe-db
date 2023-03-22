@@ -1,25 +1,25 @@
 $(document).ready(function () {
-	$(".open").click(function () {
+	$(".sm_controls .open").click(function () {
 
 
-	   $(".open").hide();
-	   $(".close").fadeIn();
+	   $(".sm_controls .open").hide();
+	   $(".sm_controls .close").fadeIn();
 
-	   $(".header_inner .menu").toggle("500", "swing");
+	   $(".header_inner .menu").slideToggle("500", "swing");
 	   //  $(".head_side").css("padding-top", "200px");
 
 	})
  });
 
 
+
  $(document).ready(function () {
-	$(".close").click(function () {
+	$(".sm_controls .close").click(function () {
 
+	   $(".sm_controls .close").hide();
+	   $(".sm_controls .open").fadeIn();
 
-	   $(".close").hide();
-	   $(".open").fadeIn();
-
-	   $(".header_inner .menu").toggle("slow");
+	   $(".header_inner .menu").slideToggle("slow");
 	   //  $(".head_side").css("padding-top", "200px");
 
 	})

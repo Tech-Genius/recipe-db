@@ -15,7 +15,7 @@ a{
 	text-decoration: none;
 }
 .header {
-    padding: 20px 0px;
+  
     margin: 0;
     display: grid;
     width: 100%;
@@ -35,7 +35,8 @@ a{
 .header_inner {
     width: 90%;
     justify-self: center;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     position: relative;
     align-items: center;
     }
@@ -58,16 +59,38 @@ a{
 	color: #FA6913;
 }
 
+
+.search{
+    justify-self: center;
+    width: 100%;
+    display: flex;
+}
+
+.search#sm_screen{
+    display: none;
+}
+
+.search_inner{
+    border: 1px solid rgba(128, 128, 128, 0.582);
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+.search_inner input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+
 /* menu */
 .menu {
-    right: 0;
-    position: absolute;
-	padding: 10px 0px;
-	z-index: 990;
+  
+width: 100%;
 }
 
 .menu ul.menu_links {
-    display: flex;
+    display:flex;
     list-style-type: none;
     align-items: center;
 }
@@ -75,55 +98,12 @@ a{
 
 .menu ul.menu_links .menu_link {
 
-    position: relative;
     color:  #2E86C1;
     font-size: 15px;
-
-    padding: 5px 0px;
-}
-
-.menu ul.menu_links .menu_link#button {
-    -webkit-text-fill-color: unset;
-    -webkit-background-clip: unset;
-    background-image: none;
-}
-
-
-.menu ul.menu_links .menu_link:hover {
-    color: #244B70;
-    transition: 0.5s linear;
-    cursor: pointer;
-}
-
-#active{
-    position: relative;
-    color: #213547;
-    font-size: 15px;
-
-    padding: 5px 0px;
 }
 
 
 
-#active::before {
-    content: "•";
-    position: absolute;
-    margin:-10px 45%;
-    bottom: 0;
-    left: 0;
-    width:fit-content;
-    
-    transform: scaleX(1);
-    transition: all 0.3s ease-out;
-}
-
-.menu ul.menu_links .router_link#button::after {
-    border-bottom: 0;
-}
-
-.menu ul.menu_links .router_link:hover::after {
-    transform: scaleX(1);
-}
 
 button{
 	background-color: #FA6913;
@@ -137,15 +117,6 @@ button{
 	font-family: 'Oswald', sans-serif;
 }
 
-
-
-
-
-
-.active {
-    color: #4E93F4 !important;
-    transition: 0.5s linear;
-}
 
 .menu ul.menu_links li {
     padding: 0px 20px;
@@ -220,8 +191,10 @@ button{
 
 
 
-@media screen and (max-width:768px) {
-
+@media screen and (max-width:1230px) {
+.header{
+    padding: 20px 0px;
+}
     .logo h3 {
         font-size: 18px;
     }
@@ -251,11 +224,11 @@ button{
     /* menu that displays on small screen */
     .header_inner .menu {
         width: 100%;
-        margin-top: 60px;
+        margin-top: 70px;
         display: none;
         width: 100%;
         background: #ffffff;
-     
+        border-top: 1px dotted #6BABDE2c;
         top: 0;
         left: 0;
         position: absolute;
@@ -265,30 +238,12 @@ button{
     }
 
 
-
-    /* animation that zooms out the navigation menu on small screen */
-    @keyframes zoom-in-zoom-out {
-
-        0% {
-            transform: skew(0deg);
-            margin-left: 100%;
-        }
-
-    }
-
     .menu ul.menu_links {
         display: grid;
         padding: 0;
         list-style-type: none;
         align-items: center;
     }
-
- 
-
-
-
-
-
 
     .menu ul.menu_links li {
         padding: 15px 0px;
@@ -299,10 +254,6 @@ button{
         font-weight: bold;
         color: white;
     }
-
-
-
-
 
 
     /* sm_cntrl" gets displayed on small screen */
@@ -321,5 +272,37 @@ button{
         padding: 8px;
         border-radius: 10%;
     }
+
+
+
+
+    .search{
+        /* position: absolute;
+            justify-self: center;
+            left: 50;
+            width: 100%;
+            display: flex;
+            justify-content: center; */
+            display: none;
+        }
+        
+        .search#sm_screen{
+            display: block;
+            position:unset;
+            width: auto;
+            justify-content: start;
+            justify-self: start;
+       margin-left: 7%;
+       padding: 15px 0px;
+       font-size: 13px;
+       border-bottom: 1px dotted #6BABDE2c;
+        }
+        
+        .search_inner{
+            border: 1px solid rgba(128, 128, 128, 0.582);
+            border-radius: 20px;
+            padding-left: 10px;
+        }
+        
 
 }

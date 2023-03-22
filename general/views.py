@@ -27,7 +27,7 @@ def search(request):
         results = Recipe.objects.filter(Q(recipe_name__icontains=q)).distinct()
         context = {'q': q, 'results': results}
         return render(request, 'search.html', context)
-
+        
     else:
         return render(request, 'search.html', {}) 
 
