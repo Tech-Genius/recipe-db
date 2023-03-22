@@ -1,0 +1,112 @@
+.add_recipe{
+    margin-top: 100px;
+    display: grid;
+}
+
+.add_recipe_inner{
+    width: 80%;
+    justify-self: center;
+    display: grid;
+}
+
+.add_recipe_inner h2{
+    font-size: 40px;
+    color: #2E86C1;
+    text-align: center;
+}
+
+.add_recipe_form{
+    border: 1px solid #ccc;
+    padding: 40px;
+    display: grid;
+    width: 60%;
+justify-self: center;
+border-radius: 20px;
+}
+
+
+
+
+.my-form {
+
+}
+
+.form-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my-form label{
+    color: #2E86C1;
+}
+
+.my-form input {
+    display: block;
+    width: 100%;
+   height: 50px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: #007bff !important;
+    font-size: 13px;
+}
+
+.my-form input[type = "file"]{
+    font-size: 14px;
+	font-family: 'Oswald', sans-serif;
+    color: #2E86C1;
+}
+
+.my-form textarea {
+    display: block;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 13px;
+    outline: #007bff !important;
+}
+
+
+.my-form input::placeholder {
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.my-form textarea::placeholder {
+    font-size: 12px;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+@media screen and (max-width:768px){
+    .add_recipe_form{
+        width: 80%;
+        padding: 40px 20px;
+    }
+
+    .add_recipe_inner h2{
+        font-size: 30px;
+        color: #2E86C1;
+        text-align: center;
+    }
+    
+}
+
+@media screen and (max-width:538px){
+    .add_recipe_form{
+        width: 90%;
+        padding: 40px 20px;
+    }
+    .my-form label{
+        font-size: 14px;
+    }
+}
