@@ -24,7 +24,7 @@ def search(request):
 
     if request.method == 'GET':
         q = request.GET['q']
-        results = Product.objects.filter(Q(title__icontains=q) | Q(category__title__icontains=q)).distinct()
+        results = Recipe.objects.filter(Q(recipe_name__icontains=q)).distinct()
         context = {'q': q, 'results': results}
         return render(request, 'search.html', context)
 

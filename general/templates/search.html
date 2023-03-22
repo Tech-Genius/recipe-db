@@ -3,6 +3,8 @@
 
 {% block title %}
 
+
+
 {% if q %}
 
 You Searched For {{q}}
@@ -22,7 +24,7 @@ You Didn't Enter A Search Query
 
 {% block content %}
 {% if q %}
-<div class="searchpage_wrapper">
+<div class="search_page">
     <div class="search-wrapper">
 
 
@@ -47,21 +49,20 @@ You Didn't Enter A Search Query
     </div>
     <div class="result_wrapper">
         {% for result in results %}
-        <div class="l">
-          <a href="{% url 'item' result.slug %}">
-            <div class="result_box" data-aos="zoom-in-up" data-aos-duration="1200">
-                <img src="{{ result.image.url}}" alt="">
-                <div class="text">
-                    <h3>{{result.title}}</h3>
-                    <p>&#8358;{{result.price}}</p>
-                    <form action="">
-                        <div class="cart">
-                            <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                        </div>
-                    </form>
+        <div class="recipe_banner">
+            <div class="recipe_block">
+                <img src="{{ result.image.url }}" alt="">
+    
+                <h3 class="name" style="margin: 0;">{{ result.recipe_name }}</h3>
+    
+                <div class="time" style="display: flex; padding-top: 10px;">
+                    <i class="far fa-clock"></i>
+                    <h5 class="date" style="margin: 0;">{{ result.date_added }}</h5>
                 </div>
+    
+    
+                <a href="{% url 'recipe_detail' result.pk %}"><button>View Recipe</button></a>
             </div>
-          </a>
         </div>
 
         {% endfor %}
@@ -100,7 +101,7 @@ You Didn't Enter A Search Query
 {% endif %}
 
 
-
+</div>
 
 
 

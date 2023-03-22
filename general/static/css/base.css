@@ -192,6 +192,16 @@ button{
 
 
 
+/* footer */
+
+
+.footer{
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 13px;
+    margin-top: 60px;
+    background-color: rgba(238, 236, 236, 0.219);
+}
 
 
 

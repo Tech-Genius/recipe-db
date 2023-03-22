@@ -15,6 +15,7 @@
    <link rel="stylesheet" href="{% static 'css/index.css' %}">
    <link rel="stylesheet" href="{% static 'css/item.css' %}">
    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+   <link rel="stylesheet" href="{% static 'css/add_recipe.css'%}">
    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
@@ -23,7 +24,7 @@
    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-   <link rel="stylesheet" href="{% static 'css/animate.css' %">
+   <link rel="stylesheet" href="{% static 'css/animate.css'} %">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <script src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.20/src/jquery.ez-plus.js"></script>
@@ -31,11 +32,7 @@
 </head>
 
 
-<body style="margin: 0; ">
-
-
- 
-
+<body style="margin: 0;">
 
 
 
@@ -45,25 +42,46 @@
       <div class="header_inner">
          <div class="logo">
             <a href="{% url 'home' %}">
-               <h3>Recipe<span>DB</span></h3>
+               <h3>Recipe<span>DB.</span></h3>
             </a>
          </div>
 
+         <div class="search">
+            <form method="GET" action="{% url 'search' %}">
+            
+               <input type="search" name="q">
+               <button type="submit">Submit</button>
+            </form>
+         </div>
 
 
          <div class="menu">
             <ul class=menu_links>
 
+               {% if user.is_authenticated %}
 
+               <li class="menu_item">
+                  <a href="{% url 'login' %}" class="menu_link">My Recipes</a>
+               </li>
+
+               <li class="menu_item">
+                  <a href="{% url 'logout' %}" class="menu_link">Logout</a>
+               </li>
+
+               {% else %}
 
                <li class="menu_item">
                   <a href="{% url 'login' %}" class="menu_link">Login</a>
                </li>
 
+              
+
 
                <li class="menu_item">
                   <a href="{% url 'signup' %}" class="menu_link">Sign Up</a>
                </li>
+
+               {% endif %}
 
                <li class="menu_item">
                   <a href="{% url 'add_recipe' %}" class="menu_link"><button>Add Recipe</button> </a>
@@ -111,7 +129,7 @@
 
    <div class="footer">
 
-         <p><a href="tel:08177618354">08177618354</a></p>
+         <p>© 2023. RecipeDB.</p>
 
 
    </div>
@@ -145,10 +163,10 @@
     $(".open").click(function(){
         
         
-        $(".close").show();
-       $(".open").hide();
+        $(".open").hide();
+       $(".close").fadeIn();
       
-       $(".header_inner .menu").toggle("slow");
+       $(".header_inner .menu").toggle("500", "swing");
       //  $(".head_side").css("padding-top", "200px");
       
    })
@@ -159,8 +177,8 @@
     $(".close").click(function(){
         
         
-        $(".open").show();
-       $(".close").hide();
+        $(".close").hide();
+       $(".open").fadeIn();
       
        $(".header_inner .menu").toggle("slow");
       //  $(".head_side").css("padding-top", "200px");
