@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block title %} My Recipes {% endblock %}
 {% block content %}
 
 <div class="my_recipes">
@@ -10,7 +10,7 @@
             <h3>My Recipes:</h3>
            </div>
 
-
+{% if recipes %}
             <div class="recipes_box_wrapper">
                 {% for recipe in recipes %}
                 <div class="my_recipes_box">
@@ -47,6 +47,12 @@
                 <p><strong>Note:</strong> Only you can view your rejected or pending recipes, readers can only view your approved recipes</p>
             </div>
         </div>
+
+        {% else %}
+
+        <p style="text-align:center;">You have not created a recipe yet</p>
+
+        {% endif %}
 
     </div>
 </div>

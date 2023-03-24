@@ -12,7 +12,7 @@ class Recipe(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     instructions = models.TextField()
     image = models.ImageField(upload_to='recipe_images/', blank=True, null=True)
-    is_approved = models.BooleanField(default=False, null=True)
+    is_approved = models.BooleanField(default=None, null=True)
     # slug = models.SlugField(default='', unique_for_date='date', blank=True)
     upvotes = models.ManyToManyField(User, related_name='upvotes', blank=True, default=[0])
     downvotes = models.ManyToManyField(User, related_name='downvotes', blank=True, default=[0])
@@ -47,5 +47,5 @@ class Comment(models.Model):
 
 
     def __str__(self):
-        return str(self.date_added)    
+        return str(self.content)    
           

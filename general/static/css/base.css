@@ -133,8 +133,8 @@ button{
 
 .sm_controls{
 	display: none;
-	position: absolute;
-	right: 0;
+width: fit-content;
+justify-self: end;
 }
 
 .sm_controls .open i{
@@ -212,14 +212,15 @@ button{
 
     .header_inner {
         position: unset;
+        grid-template-columns: 1fr 1fr;
     }
 
 
 
 	.sm_controls{
 		display: flex;
-		margin-right: 6%;
 		cursor: pointer;
+
 	}
 
 	.sm_controls .close{

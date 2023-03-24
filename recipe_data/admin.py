@@ -8,6 +8,7 @@ def approve_recipe(modeladmin, request, queryset):
 
 def reject_recipe(modeladmin, request, queryset):
     queryset.update(is_approved=False)
+  
 
 class RecipeAdmin(admin.ModelAdmin):
     list_display = ['recipe_name', 'is_approved']
