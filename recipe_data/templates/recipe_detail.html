@@ -24,7 +24,7 @@
 
 
         <div class="instructions">
-           
+
             <h3>Instructions:</h3>
             <pre>
             <p>{{ recipe.instructions }}</p>
@@ -37,26 +37,49 @@
             <p>{{ recipe.cooking_duration }}</p>
         </div>
 
-        <!-- <div class="comments">
-        <h3>Comments</h3>
-        <ul>
-            {% for comment in comments %}
-            <li>{{ comment.content }} - {{ comment.user.username }}</li>
-            {% empty %}
-            <li>No comments yet.</li>
-            {% endfor %}
-        </ul>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Add Comment</button>
-        </form>
-    </div> -->
 
 
-
-
-
+        <div class="rating">
+            <div class="rating_heading">
+                <h3>Rate this recipe:</h3>
+            </div>
+            <div class="rating_inner">
+            {% if user.is_authenticated %}
+        
+            <div id="upvote_section">
+        
+                {% include 'upvote_section.html' %}
+        
+            </div>
+        
+            <div id="downvote_section">
+        
+                {% include 'downvote_section.html' %}
+        
+            </div>
+        
+            {% else %}
+        
+        
+        
+            <div id="upvote_section">
+        
+                {% include 'upvote_section.html' %}
+        
+            </div>
+        
+            <div id="downvote_section">
+        
+                {% include 'downvote_section.html' %}
+        
+            </div>
+        
+            {% endif %}
+        
+        
+        </div>
+        </div>
+        
 
 
         <div class="comments" style="margin-bottom: 150px;">
@@ -79,42 +102,48 @@
                     </div>
 
                 </div>
-          
 
-            {% endfor %}
 
-            {% else %}
+                {% endfor %}
 
-            <p>No comments yet</p>
+                {% else %}
 
-            {% endif %}
-        </div>
+                <p>No comments yet</p>
 
-           
+                {% endif %}
+            </div>
 
-        <div class="new_comment">
-            <h3>Add New Comment:</h3>
-            {% if user.is_authenticated %}
-            <form class="my-form" action="." method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-            
 
-                <div class="form">
 
-                    <div class="field">
-                        <div class="control">
-                            <button>submit</button>
+
+
+
+
+
+
+            <div class="new_comment">
+                <h3>Add New Comment:</h3>
+                {% if user.is_authenticated %}
+                <form class="my-form" action="." method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+
+                    <div class="form">
+
+                        <div class="field">
+                            <div class="control">
+                                <button>submit</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
-            {% else %}
-            <div>Only Registered Users Are Allowed To Drop Their Comments. <a href="{% url 'signup' %}">Signup</a>
+                {% else %}
+                <div>Only Registered Users Are Allowed To Drop Their Comments. <a href="{% url 'signup' %}">Signup</a>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-        </div>
 
         </div>
 

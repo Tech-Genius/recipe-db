@@ -1,0 +1,131 @@
+.my_recipes{
+    margin-top: 90px;
+    display: grid;
+    margin-bottom: 50px;
+    min-height: 100vh;
+}
+
+.recipes_intro h3{
+text-align: center;
+color: #2E86C1;
+font-size: 35px;
+}
+
+.my_recipes_inner .note{
+    margin-left: 2%;
+}
+
+.my_recipes_wrapper{
+    display: grid;
+}
+
+.my_recipes_inner{
+    width: 80%;
+    justify-self: center;
+}
+
+
+.recipes_box_wrapper{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.my_recipes_box{
+   display: grid;
+    align-items: center;
+    width: 80%;
+    justify-self: center;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(176,170,176,1);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(176,170,176,1);
+    box-shadow: 0px 0px 6px 0px rgba(176,170,176,1);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 20px 0px;
+}
+
+
+.my_recipes_box_inner{
+
+}
+
+.my_recipes_box img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.recipe_name{
+margin: 0;
+font-size: 20px;
+color: #2E86C1 ;
+}
+
+.recipe_status{
+    margin: 10px 0px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    letter-spacing: 0.9px;
+    font-weight:400;
+}
+
+.recipe_status#approved{
+    background-color: #2E86C1;
+}
+.recipe_status#rejected{
+    background-color: red;
+}
+
+.recipe_status#pending{
+    background-color: greenyellow;
+}
+
+#my_recipe_flex{
+    display: grid;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+
+.view h5{
+    margin: 0;
+    padding: 10px;
+    color: white;
+    border-radius: 5px; 
+    background-color: #FA6913;  
+    letter-spacing: 0.9px;
+    font-weight:400;
+    margin: 10px 0px;
+}
+
+
+
+
+
+
+
+@media screen and (max-width:820px){
+    .recipes_box_wrapper{
+        grid-template-columns: 1fr 1fr;
+        }
+
+}
+
+
+@media screen and (max-width:768px){
+    .recipes_box_wrapper{
+        grid-template-columns: 1fr;
+        }
+
+        .recipes_intro h3{
+            text-align: center;
+            color: #2E86C1;
+            font-size: 30px;
+            }
+            
+
+}

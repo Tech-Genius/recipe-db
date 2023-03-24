@@ -1,0 +1,15 @@
+
+<form action="{% url 'upvote' %}" method="post">
+ 
+    {% csrf_token %}
+
+    {% if is_liked %}
+     <button type="submit" class="btn btn" value="{{ recipe.id }}" id="upvote"><i class="fa fa-thumbs-up" style="color: blue; font-size: 20px;"></i>{{ total_upvotes }} Up vote{{ total_upvotes|pluralize }}</button>
+     
+    {% else %} 
+
+    <button type="submit" class="btn btn" value="{{ recipe.id }}" id="upvote"><i class="fa fa-thumbs-up" style="color: rgba(6, 6, 102, 0.418); font-size: 20px;"></i>{{ total_upvotes }} Up vote{{ total_upvotes|pluralize }}</button>
+    {% endif %}
+ 
+ </form>
+

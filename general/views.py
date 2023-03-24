@@ -12,8 +12,8 @@ from recipe_data.models import *
 
 def home(request):
 
-    recipes = Recipe.objects.all()
-    return render(request, 'index.html',  {'recipes' : recipes}) 
+    approved_recipes = Recipe.objects.filter(is_approved=True)
+    return render(request, 'index.html',  {'recipes' : approved_recipes}) 
 
 
 

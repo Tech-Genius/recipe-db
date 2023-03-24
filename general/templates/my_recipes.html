@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="my_recipes">
+
+    <div class="my_recipes_wrapper">
+        <div class="my_recipes_inner">
+           <div class="recipes_intro">
+            <h3>My Recipes:</h3>
+           </div>
+
+
+            <div class="recipes_box_wrapper">
+                {% for recipe in recipes %}
+                <div class="my_recipes_box">
+                    <div class="my_recipes_box_inner">
+                        <img src="{{recipe.image.url}}" alt="">
+                    </div>
+                    <div class="my_recipes_box_inner">
+                        <h2 class="recipe_name">{{ recipe.recipe_name }}</h2>
+                    </div>
+
+                    <div class="my_recipes_box_inner" id="my_recipe_flex">
+                        <div class="view">
+                            <a href="{% url 'recipe_detail' recipe.pk %}"><h5>View Recipe</h5></a>
+                        </div>
+
+                        <div class="status">
+                            {% if recipe.is_approved %}
+                            <h5 class="recipe_status" id="approved" title="Status - Approved">Status - Approved</h5>
+                            {% elif recipe.is_approved == False %}
+                            <h5 class="recipe_status" id="rejected" title="Status - Rejected">Status - Rejected</h5>
+
+                            {% else %}
+                            <h5 class="recipe_status" id="pending" title="Status - Pending">Status - Pending</h5>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+
+                {% endfor %}
+            </div>
+
+            <div class="note">
+                <p><strong>Note:</strong> Only you can view your rejected or pending recipes, readers can only view your approved recipes</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+    {% endblock %}

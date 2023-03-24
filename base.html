@@ -15,6 +15,7 @@
    <link rel="stylesheet" href="{% static 'css/index.css' %}">
    <link rel="stylesheet" href="{% static 'css/item.css' %}">
    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+   <link rel="stylesheet" href="{% static 'css/my_recipes.css' %}">
    <link rel="stylesheet" href="{% static 'css/add_recipe.css'%}">
    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
@@ -51,7 +52,7 @@
 
             <div class="search_inner">
                <form method="GET" action="{% url 'search' %}">
-                  <input type="search" name="q" placeholder="Search...">
+                  <input type="search" required name="q" placeholder="Search...">
                   <button type="submit">Submit</button>
                </form>
             </div>
@@ -70,16 +71,16 @@
 
                   <div class="search_inner">
                      <form method="GET" action="{% url 'search' %}">
-                        <input type="search" name="q" placeholder="Search...">
+                        <input type="search" required name="q" placeholder="Search...">
                         <button type="submit">Submit</button>
                      </form>
                   </div>
-      
-      
+
+
                </div>
 
                <li class="menu_item">
-                  <a href="{% url 'login' %}" class="menu_link">My Recipes</a>
+                  <a href="{% url 'my_recipes' %}" class="menu_link">My Recipes</a>
                </li>
 
                <li class="menu_item">
@@ -87,6 +88,21 @@
                </li>
 
                {% else %}
+
+
+               <div class="search" id="sm_screen">
+
+
+                  <div class="search_inner">
+                     <form method="GET" action="{% url 'search' %}">
+                        <input type="search" required name="q" placeholder="Search...">
+                        <button type="submit">Submit</button>
+                     </form>
+                  </div>
+
+
+               </div>
+
 
                <li class="menu_item">
                   <a href="{% url 'login' %}" class="menu_link">Login</a>
@@ -147,9 +163,12 @@
 
    <div class="footer">
 
-      <p>© 2023. RecipeDB.</p>
+      <div class="footer_inner">
 
 
+         <p>© 2023. RecipeDB.</p>
+
+      </div>
    </div>
 
 
@@ -176,6 +195,62 @@
    <script>    AOS.init(); </script>
 
    <script>
+      $(document).ready(function (event) {
+         $(document).on('click', '#upvote', function (event) {
+            event.preventDefault();
+            var pk = $(this).attr('value');
+            $.ajax({
+               type: "POST",
+               url: '{% url "upvote" %}',
+               data: {
+                  recipe_id: pk,
+                  'csrfmiddlewaretoken': '{{csrf_token}}'
+               },
+               dataType: 'json',
+               success: function (response) {
+                  $('#upvote_section').html(response['form'])
+                  console.log($('#upvote_section').html(response['form']))
+
+               },
+
+               error: function (rs, e) {
+                  console.log(rs.responseText);
+
+               },
+
+            });
+         });
+      });
+
+
+
+
+      $(document).ready(function (event) {
+         $(document).on('click', '#downvote', function (event) {
+            event.preventDefault();
+            var pk = $(this).attr('value');
+            $.ajax({
+               type: "POST",
+               url: '{% url "downvote" %}',
+               data: {
+                  recipe_id: pk,
+                  'csrfmiddlewaretoken': '{{csrf_token}}'
+               },
+               dataType: 'json',
+               success: function (response) {
+                  $('#downvote_section').html(response['form'])
+                  console.log($('#downvote_section').html(response['form']))
+
+               },
+
+               error: function (rs, e) {
+                  console.log(rs.responseText);
+
+               },
+
+            });
+         });
+      });
 
    </script>
 

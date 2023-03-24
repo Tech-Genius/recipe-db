@@ -104,10 +104,6 @@ margin-right: 5px;
 
 
 
-
-
-
-
  
 @media screen and (max-width:768px){
     .hero{
@@ -137,7 +133,8 @@ margin-right: 5px;
     }
 }
 
- 
+
+
 @media screen and (max-width:560px){
     .home_recipes{
         grid-template-columns: 1fr;

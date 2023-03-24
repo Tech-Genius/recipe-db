@@ -10,7 +10,7 @@
     justify-self: center;
 }
 .post_details img{
-    width: 100%;
+    max-height:400px;
 }
 
 .instructions, .ingredients, .duration{
@@ -49,6 +49,43 @@
     margin: 0 !important;
     padding: 0 !important;
 }
+
+
+
+.rating{
+    padding: 50px;
+    border-bottom: 1px solid #c4c0c0d3;
+}
+
+.rating_heading h3{
+    text-align: center;
+    color: #007bff;
+}
+.rating_inner{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.rating_inner button{
+    display: grid;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #4E93F4;
+}
+
+.rating_inner #upvote_section, .rating_inner #downvote_section{
+    margin: 5px 5px;
+}
+
+
+
+
+
+
+
 
 
 
@@ -109,6 +146,10 @@ border-radius: 20px;
 
 
 
+
+
+
+
 .new_comment .my-form {
     border: 1px solid #ccc;
     padding: 20px;
@@ -154,5 +195,10 @@ border-radius: 20px;
 @media screen and (max-width:768px){
    .new_comment  .my-form{
         width:80%;
+    }
+
+    .post_details img{
+        max-height: auto;
+        width: 100%;
     }
 }

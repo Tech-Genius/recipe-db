@@ -1,0 +1,14 @@
+
+<form action="{% url 'downvote' %}" method="post">
+ 
+    {% csrf_token %}
+
+    {% if is_unliked %}
+     <button type="submit" class="btn btn" name="recipe_id" value="{{ recipe.id }}" id="downvote"><i class="fa fa-thumbs-down" style="color: red; font-size: 20px;"></i>{{ total_downvotes }} Down vote{{ total_downvotes|pluralize }}</button>
+     
+    {% else %} 
+
+    <button type="submit" class="btn btn" name="recipe_id" value="{{ recipe.id }}" id="downvote"><i class="fa fa-thumbs-down" style="color: rgba(148, 11, 11, 0.705); font-size: 20px;"></i>{{ total_downvotes }} Down vote{{ total_downvotes|pluralize }}</button>
+    {% endif %}
+ 
+ </form>
