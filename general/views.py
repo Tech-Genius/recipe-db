@@ -2,7 +2,6 @@ from multiprocessing import context
 from django.shortcuts import render, HttpResponseRedirect
 from . models import *
 from django.db.models import Q
-from django.core.mail import send_mail
 from recipe import settings 
 from recipe_data.models import *
 # Create your views here.

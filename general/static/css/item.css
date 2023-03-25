@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
+    overflow: hidden;
 }
 .post_details{
     width: 80%;
@@ -22,19 +23,23 @@
     color: #4E93F4;
     font-size: 25px;
 }
+
 .instructions pre p{
     margin: 0;
 }
 
 .instructions pre{
-    white-space: pre-wrap;
+    
     font-size: 16px;
     line-height: 1.5;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-
+pre{
+    white-space: pre-wrap !important;
+    height: fit-content;
+}
 .ingredients h3{
     margin-bottom: 0;
 }
@@ -43,7 +48,7 @@
 }
 
 .ingredients pre{
-    white-space: pre-wrap;
+    
     font-size: 16px;
     line-height: 1.5;
     margin: 0 !important;

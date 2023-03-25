@@ -106,7 +106,7 @@ def downvote(request):
 
 
 
-
+@login_required
 def my_recipes(request):
     user = request.user
     recipes = Recipe.objects.filter(user=user)
