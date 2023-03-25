@@ -11,11 +11,21 @@ class Recipe(models.Model):
     cooking_duration = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
     instructions = models.TextField()
-    image = models.ImageField(upload_to='recipe_images/', blank=True, null=True)
+    image = models.ImageField(upload_to='recipe_images/', blank=True, null=True, default='recipe_images/default_recipe_image.png')
     is_approved = models.BooleanField(default=None, null=True)
     # slug = models.SlugField(default='', unique_for_date='date', blank=True)
     upvotes = models.ManyToManyField(User, related_name='upvotes', blank=True, default=[0])
     downvotes = models.ManyToManyField(User, related_name='downvotes', blank=True, default=[0])
+
+
+    def save(self, *args, **kwargs):
+        # Check if an image is present
+        if not self.image:
+            # If no image is present, set the default image
+            with open(os.path.join(settings.STATIC_ROOT, 'recipe_images/default_recipe_image.png'), 'rb') as f:
+                self.image.save('default_recipe_image.png', File(f), save=False)
+
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['-date_added']
